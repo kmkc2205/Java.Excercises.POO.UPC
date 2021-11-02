@@ -1,10 +1,11 @@
 package Clases;
 
-public class Participante {
+public abstract class Participante {
     private String Nombre;
     private String Apellido;
     private int DNI;
     private int Edad;
+    private int Puntaje;
 
 
     public Participante(String Nombre, String Apellido,int DNI,int Edad){//Metodo Constructor
@@ -14,6 +15,8 @@ public class Participante {
         this.Edad=Edad;
 
     }
+    public abstract int calcularPuntaje();
+
 
     @Override
     public String toString() {
@@ -23,6 +26,14 @@ public class Participante {
                 ", DNI=" + DNI +
                 ", Edad=" + Edad +
                 '}';
+    }
+
+    public int getPuntaje() {
+        return Puntaje;
+    }
+
+    public void setPuntaje(int puntaje) {
+        Puntaje = puntaje;
     }
 
     public String getNombre() {
