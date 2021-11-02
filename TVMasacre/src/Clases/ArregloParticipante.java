@@ -17,6 +17,14 @@ public class ArregloParticipante {
     }
     public void puntajeParticipante(){
         for(int i=0;i<Participantes.length;i++){
+            if (Participantes[0]==null){
+                System.out.println("Arreglo Vacio");
+                break;
+            }
+            if (Participantes[i]==null){
+
+                break;
+            }
             System.out.println("Nombre: "+Participantes[i].getNombre()+" Apellido: "+Participantes[i].getApellido()+" Puntaje: "+Participantes[i].getPuntaje());
         }
     }
