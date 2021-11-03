@@ -31,7 +31,13 @@ public class ArregloParticipante {
     public String gAnador(){
         int Mayor=Participantes[0].getPuntaje();
         int indice=0;
+        if(Participantes[0]==null) {
+            return "Arreglo Vacio";
+        }
         for (int i=0;i<Participantes.length;i++){
+            if (Participantes[i]==null){
+                break;
+            }
             if (Participantes[i].getPuntaje()>Mayor) {
             Mayor=Participantes[i].getPuntaje();
             indice=i;
@@ -41,12 +47,24 @@ public class ArregloParticipante {
     }
     public String busquedaporDNI(int DNI){
         int indice=0;
-        for (int i=0;i<Participantes.length;i++){
-            if(DNI==Participantes[i].getDNI()){
-               indice=i;
-            }
+        if(Participantes[0]==null) {
+            return "Arreglo Vacio";
         }
-        return "El Nombre del Participante es: "+Participantes[indice].toString();
+        else{
+            for (int i = 0; i < Participantes.length; i++) {
+                if (DNI == Participantes[i].getDNI()) {
+                    indice = i;
+                    break;
+                }
+                if(Participantes[Participantes.length-1]==null){
+                    return "No se encontro DNI";
+                }
+
+            }
+
+            return "El Nombre del Participante es: "+Participantes[indice].toString();
+        }
+
     }
     public void ingresarParticipanteFanMasacre(String Nombre,String Apellido,int DNI,int Edad,String EquipoAlQuePertenece,int CMT,int PB,int PE){
         Participantes[indice]= new FanMasacre(Nombre,Apellido,DNI,Edad,EquipoAlQuePertenece,CMT,PB,PE);

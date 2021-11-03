@@ -68,12 +68,13 @@ public class Main {
                         break;
                     case 4:
                         JOptionPane.showMessageDialog(null,"El Ganador es:");
-                        p1.gAnador();
+                        System.out.println(p1.gAnador());
+                        break;
                     case 5:
                         int DNICONSULTA;
                         DNICONSULTA=Integer.parseInt(JOptionPane.showInputDialog("Ingresa el DNI a colsutar:"));
                         JOptionPane.showMessageDialog(null,"Gracias por la Busqueda.");
-
+                        System.out.println(p1.busquedaporDNI(DNICONSULTA));
 
                 }
             }while (r!=6);
