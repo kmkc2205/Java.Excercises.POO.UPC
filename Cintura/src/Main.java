@@ -5,13 +5,9 @@ public class Main {
         ArregloConcursante p1=new ArregloConcursante();
         p1.registrarConcursante(o1);
         p1.registrarConcursante(o2);
-
-        //Muestra Nombre de concursantes y puntaje final Obtenido;
-        for(Concursante p:p1.concur){
-            System.out.println(p.getNombre()+" "+p.getPuntajeF());
-        }
-        System.out.println("   ");
-        p1.ganadorGeneral();
+        p1.concur.toArray().getClass();
+        p1.concur.get(0).getClass().getSimpleName();
+        System.out.println(o1.getClass().getSimpleName());
 
     }
 
