@@ -8,10 +8,19 @@ public class AdultoMayor extends Vecino{
         promocionespecial();
     }
 
+
     @Override
-    public void promocionespecial() {
+    public boolean promocionespecial() {
         if(super.getEdad()>75){
             bebida=true;
         }
+        return this.bebida;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString()+" AdultoMayor{" +
+                "bebida=" + bebida +
+                '}';
     }
 }

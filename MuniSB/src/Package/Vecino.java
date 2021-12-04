@@ -7,6 +7,7 @@ public abstract  class Vecino {
     private int edad;
     private String correoElectronico;
 
+
     public Vecino(int DNI, int telefono, String estadoCivil, int edad, String correoElectronico) {
         this.DNI = DNI;
         Telefono = telefono;
@@ -14,7 +15,7 @@ public abstract  class Vecino {
         this.edad = edad;
         this.correoElectronico = correoElectronico;
     }
-    public abstract void promocionespecial();
+    public abstract boolean promocionespecial();
 
     public int getDNI() {
         return DNI;
@@ -54,5 +55,16 @@ public abstract  class Vecino {
 
     public void setCorreoElectronico(String correoElectronico) {
         this.correoElectronico = correoElectronico;
+    }
+
+    @Override
+    public String toString() {
+        return "Vecino{" +
+                "DNI=" + DNI +
+                ", Telefono=" + Telefono +
+                ", EstadoCivil='" + EstadoCivil + '\'' +
+                ", edad=" + edad +
+                ", correoElectronico='" + correoElectronico + '\'' +
+                '}';
     }
 }
