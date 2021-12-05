@@ -43,10 +43,19 @@ public class Bus {
         Asientos = asientos;
     }
 
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
     @Override
     public String toString() {
         return "Bus{" +
-                "Numero de Placa=" + nroPlaca +
+                "nroPlaca='" + nroPlaca + '\'' +
+                ", fecha='" + fecha + '\'' +
                 ", Asientos=" + Asientos +
                 '}';
     }

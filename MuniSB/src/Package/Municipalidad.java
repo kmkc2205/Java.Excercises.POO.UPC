@@ -6,9 +6,10 @@ import java.util.Vector;
 public class Municipalidad {
     private ArrayList<Vecino> Vecinos;
     private ArrayList<Bus> Buses;
+    private ArrayList<Boleto> Boletos;
     private static Municipalidad vecinos=new Municipalidad();
     private  Municipalidad(){
-
+        Boletos=new ArrayList<>();
         Vecinos=new ArrayList<>();
         Buses=new ArrayList<>(10);
     }
@@ -66,6 +67,18 @@ public class Municipalidad {
             throw new Exception("No se encontro el DNI");
         }
 
+    }
+    public void pasajerosRegistradosEnUnBus(String nroPlaca,String Fecha){
+        for (int i=0;i<Buses.size();i++){
+            if ((Buses.get(i).getNroPlaca()==nroPlaca)&&(Buses.get(i).getFecha()==Fecha)){
+                for (int j=0;j<Buses.get(i).getAsientos().size();j++){
+                    if (Buses.get(i).getAsientos().get(j).isAsientoOcupado()==true){
+
+                        System.out.println(Buses.get(i).getAsientos().get(j).getVeci()+" Con obsequio: "+Buses.get(i).getAsientos().get(j).getVeci().promocionespecial());
+                    }
+                }
+            }
+        }
     }
 
     public void promedioEdadAdultosMayores(){
@@ -128,6 +141,46 @@ public class Municipalidad {
 
     }
 
+    public Boleto reservarAsiento(int DNI,String Fecha) throws Exception{
+        Vecino vecinoProximoAregistrarse;
+        Boleto boleto=null;
+        int cont=0;
+        boolean seEncuentraVecino=true;
+        for (int k=0;k<Vecinos.size();k++){
+
+
+
+                if (Vecinos.get(k).getDNI()!=DNI){
+                    cont++;
+                }
+                if (cont==Vecinos.size()){
+                    throw new Exception("Vecino no registrado");
+                }
+
+
+            if (Vecinos.get(k).getDNI()==DNI){
+
+                vecinoProximoAregistrarse=Vecinos.get(k);
+                for (int i=0;i<Buses.size();i++){
+                    if (Buses.get(i).getFecha().equals(Fecha)){
+                        for (int j=0;j<Buses.get(i).getAsientos().size();j++){
+                            if (Buses.get(i).getAsientos().get(j).isAsientoOcupado()==false){
+                                Buses.get(i).getAsientos().get(j).setAsientoOcupado(true);
+                                Buses.get(i).getAsientos().get(j).setVeci(vecinoProximoAregistrarse);
+                                boleto=new Boleto(Buses.get(i),Buses.get(i).getAsientos().get(j),vecinoProximoAregistrarse);
+                                Boletos.add(boleto);
+                                return boleto;
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return boleto;
+
+    }
+
 
 
     public ArrayList<Vecino> getVecinos() {
@@ -142,4 +195,11 @@ public class Municipalidad {
         Buses = buses;
     }
 
+    public ArrayList<Boleto> getBoletos() {
+        return Boletos;
+    }
+
+    public void setBoletos(ArrayList<Boleto> boletos) {
+        Boletos = boletos;
+    }
 }

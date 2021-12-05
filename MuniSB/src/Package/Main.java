@@ -53,8 +53,16 @@ public class Main {
 
         m.numeroDeAsientosDisponiblesPorBus();
 
-        Reserva r1=new Reserva("21/11/2021",m);
-        r1.reservarAsiento(74380501);
+        try{
+            System.out.println(m.reservarAsiento(74380502,"26/12/2021"));
+            System.out.println(m.reservarAsiento(74380501,"26/12/2021"));
+            System.out.println(m.reservarAsiento(74380503,"21/12/2021"));
+            System.out.println(m.reservarAsiento(74380504,"21/12/2021"));
+            System.out.println(m.reservarAsiento(74380505,"21/12/2021"));
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
         m.numeroDeAsientosDisponiblesPorBus();
         System.out.println("ss");
         try{
@@ -71,6 +79,14 @@ public class Main {
         for (Bus b: m.getBuses()){
             System.out.println(b);
         }
+        System.out.println("sssssss");
+
+        for (int i=0;i<m.getBoletos().size();i++){
+            System.out.println(m.getBoletos().get(i));
+        }
+
+        System.out.println("TTTT");
+        m.pasajerosRegistradosEnUnBus("AC1234","21/12/2021");
 
 
 
