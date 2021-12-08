@@ -70,8 +70,10 @@ public class Municipalidad {
     }
     public void pasajerosRegistradosEnUnBus(String nroPlaca,String Fecha){
         for (int i=0;i<Buses.size();i++){
-            if ((Buses.get(i).getNroPlaca()==nroPlaca)&&(Buses.get(i).getFecha()==Fecha)){
+
+            if ((Buses.get(i).getNroPlaca().equals(nroPlaca))&&(Buses.get(i).getFecha().equals(Fecha))){
                 for (int j=0;j<Buses.get(i).getAsientos().size();j++){
+
                     if (Buses.get(i).getAsientos().get(j).isAsientoOcupado()==true){
 
                         System.out.println(Buses.get(i).getAsientos().get(j).getVeci()+" Con obsequio: "+Buses.get(i).getAsientos().get(j).getVeci().promocionespecial());
