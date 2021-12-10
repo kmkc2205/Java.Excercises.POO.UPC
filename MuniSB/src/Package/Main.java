@@ -86,6 +86,7 @@ public class Main {
                         break;
                     }
                     JOptionPane.showMessageDialog(null,"Vecino Registrado Correctamente");
+                    System.out.println("***********");
 
                     break;
                 case 2:
@@ -96,8 +97,10 @@ public class Main {
                     }
                     catch (Exception e){
                         JOptionPane.showMessageDialog(null,e.getMessage());
+                        break;
                     }
                     JOptionPane.showMessageDialog(null, "Vecino reservo correctamente su asiento");
+                    System.out.println("***********");
                     break;
                 case 3:
                     int dni=Integer.parseInt(JOptionPane.showInputDialog("Ingresa el DNI a consultar"));
@@ -107,42 +110,51 @@ public class Main {
                     catch (Exception e){
                         JOptionPane.showMessageDialog(null,e.getMessage());
                     }
+                    System.out.println("***********");
                     break;
                 case 4:
                     String nRObus=JOptionPane.showInputDialog("Ingresa el numero de Placa del Bus");
                     String fEcha=JOptionPane.showInputDialog("Ingresa la fecha de reserva de bus");
                     m.pasajerosRegistradosEnUnBus(nRObus,fEcha);
+                    System.out.println("***********");
                     break;
                 case 5:
                     m.promedioEdadAdultosMayores();
+                    System.out.println("***********");
                     break;
                 case 6:
                     m.promedioEdadClubEcologiaConObsequio();
+                    System.out.println("***********");
                     break;
                 case 7:
                     m.vecinosConObsequios();
+                    System.out.println("***********");
                     break;
                 case 8:
                     m.numeroDeAsientosDisponiblesPorBus();
+                    System.out.println("***********");
                     break;
                 case 9:
                     for (Vecino v:m.getVecinos()){
                         System.out.println(v);
                     }
+                    System.out.println("***********");
                     break;
                 case 10:
                     for (Bus b:m.getBuses()){
                         System.out.println(b);
                     }
+                    System.out.println("***********");
                     break;
                 case 11:
                     for (Boleto bo:m.getBoletos()){
                         System.out.println(bo);
 
                     }
+                    System.out.println("***********");
                     break;
                 default:
-                    System.out.println("Hola");
+                    System.out.println("Gracias..");
             }
 
         }while (r!=12);
